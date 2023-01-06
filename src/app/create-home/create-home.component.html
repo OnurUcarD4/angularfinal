@@ -1,0 +1,37 @@
+<form [formGroup]="homeForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="mb-3">
+        <label >Başlık</label>
+        <input type="text" formControlName="homeName" class="form-control" placeholder="Ev adını giriniz." required>
+    </div>
+    <div class="mb-3">
+            <label>Açıklama</label>
+            <input type="text" formControlName="homeDesc" class="form-control" placeholder="Ev açıklamasını giriniz." required>
+    </div>
+     <div class="mb-3">
+          <label>Fiyat</label>
+         <input type="text" formControlName="homePrice" class="form-control" placeholder="Ev Fiyatını giriniz." required>
+    </div>
+    <div class="mb-3">
+        <label>Oda</label>
+        <input type="text" formControlName="homeRooms" class="form-control" placeholder="Evin Odalarını giriniz." required>
+    </div>
+    <div class="mb-3">
+        <label>Metrekare</label>
+        <input type="text" formControlName="homeMeters" class="form-control" placeholder="Evin metrekaresini giriniz." required>
+    </div>
+        <div class="mb-3">
+            <label>Tip</label>
+            <input type="text" formControlName="homeType" class="form-control" placeholder="Evin tipini giriniz."
+                required>
+        </div>
+            <div class="mb-3">
+                <label>Renk</label>
+                <input type="text" formControlName="homeColor" class="form-control" placeholder="Evin Rengini giriniz."
+                    required>
+            </div>
+    <div class="mb-3">
+        <label>Lokasyon</label>
+        <input type="text" formControlName="homeLocation" class="form-control" placeholder="Evin lokasyonunu giriniz."
+            required>
+    </div>
+</form>
