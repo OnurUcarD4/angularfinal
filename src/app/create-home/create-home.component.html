@@ -1,37 +1,122 @@
-<form [formGroup]="homeForm" (ngSubmit)="onSubmit()" novalidate>
-    <div class="mb-3">
-        <label >Başlık</label>
-        <input type="text" formControlName="homeName" class="form-control" placeholder="Ev adını giriniz." required>
-    </div>
-    <div class="mb-3">
-            <label>Açıklama</label>
-            <input type="text" formControlName="homeDesc" class="form-control" placeholder="Ev açıklamasını giriniz." required>
-    </div>
-     <div class="mb-3">
-          <label>Fiyat</label>
-         <input type="text" formControlName="homePrice" class="form-control" placeholder="Ev Fiyatını giriniz." required>
-    </div>
-    <div class="mb-3">
-        <label>Oda</label>
-        <input type="text" formControlName="homeRooms" class="form-control" placeholder="Evin Odalarını giriniz." required>
-    </div>
-    <div class="mb-3">
-        <label>Metrekare</label>
-        <input type="text" formControlName="homeMeters" class="form-control" placeholder="Evin metrekaresini giriniz." required>
-    </div>
-        <div class="mb-3">
-            <label>Tip</label>
-            <input type="text" formControlName="homeType" class="form-control" placeholder="Evin tipini giriniz."
-                required>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand text-white" href="/dashboard"><i class="fa fa-graduation-cap fa-lg mr-2"></i>EMLAK
+            PORTALI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse"
+            aria-controls="nvbCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nvbCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item pl-1">
+                    <a class="nav-link" href="/dashboard"><i class="fa fa-home fa-fw mr-1"></i>İlanlar</a>
+                </li>
+                <li class="nav-item pl-1 active">
+                    <a class="nav-link" href="/create-home"><i class="fa fa-th-list fa-fw mr-1"></i>İlan Oluştur</a>
+                </li>
+                <li class="nav-item pl-1">
+                    <a (click)="exitAccount()" class="nav-link" href="/home"><i class="fa fa-th-list fa-fw mr-1"></i>Çıkış Yap</a>
+                </li>
+
+            </ul>
         </div>
-            <div class="mb-3">
-                <label>Renk</label>
-                <input type="text" formControlName="homeColor" class="form-control" placeholder="Evin Rengini giriniz."
-                    required>
-            </div>
-    <div class="mb-3">
-        <label>Lokasyon</label>
-        <input type="text" formControlName="homeLocation" class="form-control" placeholder="Evin lokasyonunu giriniz."
-            required>
     </div>
+</nav>
+
+<form class=" create-home-form">
+    <div class="form-group">
+        <label class="text-muted" for="homeName">İlan Adı</label>
+        <input maxlength="75" type="text" class="form-control" id="homeName" name="homeName" [(ngModel)]="homeName" placeholder="Örn: Sahibinden 3+1 Villa" >
+        <small id="emailHelp" class="form-text text-muted">İlan başlığı yerine geçecektir.</small>
+    </div>
+    <div class="form-group">
+        <label class="text-muted" for="exampleFormControlTextarea1">İlan Açıklaması</label>
+        <textarea maxlength="150" class="form-control" id="homeDesc" [(ngModel)]="homeDesc" name="homeDesc" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label  class="text-muted" for="homePrice">İlan Fiyatı</label>
+        <input  type="text" class="form-control" id="homePrice" [(ngModel)]="homePrice" name="homePrice" placeholder="Örn: 3.150.000 TL">
+    </div>
+    <div class="form-group">
+        <label  class="text-muted" for="homeRooms">Oda Sayısı</label>
+        <input type="text" class="form-control" id="homeRooms" [(ngModel)]="homeRooms" name="homeRooms" placeholder="Örn: 3+1">
+    </div>
+    <div class="form-group">
+        <label  class="text-muted" for="homeMeters">Metrekare</label>
+        <input type="text" class="form-control" id="homeMeters" name="homeMeters" [(ngModel)]="homeMeters" placeholder="Örn: 172M2">
+    </div>
+    <div class="form-group">
+        <label  class="text-muted" for="homeType">Ev Tipi</label>
+        <select type="text" class="form-control" id="homeType" name="homeType" [(ngModel)]="homeType" placeholder="Seçiniz.">
+            <option value="Villa">Villa</option>
+            <option value="Daire">Daire</option>
+            <option value="Residence">Residence</option>
+            <option value="Gökdelen">Gökdelen</option>
+            <option value="Müstakil">Müstakil</option>
+            <option value="Gecekondu">Gecekondu</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label  class="text-muted" for="homeColor">Renk</label>
+        <input type="text" class="form-control" id="homeColor" name="homeColor" [(ngModel)]="homeColor" placeholder="Örn: Beyaz">
+    </div>
+    <div class="form-group">
+        <label class="text-muted" for="homeMeters">Lokasyon</label>
+        <input type="text" class="form-control" id="homeLocation" name="homeLocation" [(ngModel)]="homeLocation" placeholder="Örn: Kızılarık mh.">
+    </div>
+    <div class="form-group">
+        <label class="text-muted"  for="homeMeters">İlan Resmi</label>
+        <input type="text" class="form-control" id="homeImage" name="homeImage" [(ngModel)]="homeImage" placeholder="Örn: https://www.hizliresim.com/abc.jpg">
+    </div>
+    <div class="form-group">
+        <label  class="text-muted" for="homeAuthor">Telefon Numarası</label>
+        <input maxlength="10" type="text" class="form-control" id="homeAuthor" name="homeAuthor" [(ngModel)]="homeAuthor"
+                placeholder="Örn: 553 856 37 61">
+     </div>
+    <button type="submit" (click)="addHome()" class="btn btn-outline-success mt-2">İlanı Yayınla</button>
 </form>
+
+
+<footer>
+    <div class="jumbotron jumbotron-fluid bg-secondary p-4 mt-5 mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 cizgi">
+                    <div class="card bg-secondary border-0">
+                        <div class="card-body text-light text-center">
+                            <h5 class="card-title text-white display-4" style="font-size:30px">Telif Hakkı</h5>
+                            <p class="d-inline lead">Tüm Hakları Saklıdır. Onur Uçar © 2023<br>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 cizgi">
+                    <div class="card bg-secondary border-0">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-white display-4" style="font-size:30px">İletişim</h5>
+                            <span href="tel:+905538563761" class="text-light d-block lead" style="margin-left: -20px"
+                                href="#"><i class="fa fa-phone mr-2"></i>+90 (553) 856 37 61</span>
+                            <span class="text-light d-block lead"><i
+                                    class="fa fa-envelope mr-2"></i>onurucar1443@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                    <div class="card bg-secondary border-0">
+                        <div class="card-body text-center row">
+                            <h5 class="card-title text-white display-4" style="font-size:30px">Sosyal Medya</h5>
+
+                            <a class="text-light" href="https://www.instagram.com/onur.ucarrr/">Instagram</a>
+
+                            <a class="text-light" href="https://www.linkedin.com/in/onurucard4/">LinkedIn</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

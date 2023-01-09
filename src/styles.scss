@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+body{
+    background-color: #221e1e !important;
+}
 @import "ngx-toastr/toastr";
 @import "../node_modules/bootstrap/scss/bootstrap.scss"
 

@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand text-white" href="/dashboard"><i class="fa fa-graduation-cap fa-lg mr-2"></i>EMLAK
-            PORTALI</a>
+        <a class="navbar-brand text-white" href="/dashboard"><i class="fa fa-graduation-cap fa-lg mr-2"></i>EMLAK PORTALI</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse"
             aria-controls="nvbCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -9,14 +8,13 @@
         <div class="collapse navbar-collapse" id="nvbCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active pl-1">
-                    <a class="nav-link" href="/admin"><i class="fa fa-home fa-fw mr-1"></i>İlanlar</a>
+                    <a class="nav-link" href="/dashboard"><i class="fa fa-home fa-fw mr-1"></i>İlanlar</a>
                 </li>
                 <li class="nav-item pl-1">
-                    <a class="nav-link" href="/users"><i class="fa fa-th-list fa-fw mr-1"></i>Kullanıcılar</a>
+                    <a class="nav-link" href="/create-home"><i class="fa fa-th-list fa-fw mr-1"></i>İlan Oluştur</a>
                 </li>
                 <li class="nav-item pl-1">
-                    <a (click)="exitAccount()" class="nav-link" href="/home"><i
-                            class="fa fa-th-list fa-fw mr-1"></i>Çıkış Yap</a>
+                                <a (click)="exitAccount()" class="nav-link" href="/home"><i class="fa fa-th-list fa-fw mr-1"></i>Çıkış Yap</a>
                 </li>
 
             </ul>
@@ -24,40 +22,37 @@
     </div>
 </nav>
 
-<section class="intro">
-    <div class="gradient-custom-2 h-100">
-        <div class="mask d-flex align-items-center h-100">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="table-responsive">
-                            <table  class="table table-dark table-bordered mb-0">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">İLAN ADI</th>
-                                        <th scope="col">İLAN ID</th>
-                                        <th scope="col">İLAN GEÇERLİLİK SÜRESİ</th>
-
-                                        <th scope="col">İŞLEMLER</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="" *ngFor="let home of homeList; let i = index">
-                                        <th title="{{home.homeName}}" scope="row">{{home.homeName.substring(0,24) + "..."}}</th>
-                                        <td>{{home.id}}</td>
-                                        <td>30 GÜN</td>
-                                        <td><button type="button" class="btn btn-danger m-2">İlanı Kaldır</button> <button type="button" class="btn btn-danger">İlanı Düzenle</button></td>
-                                        
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+<div class="container mx-auto mt-4 ">
+    <div class="row">
+        <div class="col-md-4 card-container" >
+            <div class="card" *ngFor="let home of homeList" style="width: 18rem;">
+                <a href="{{home.homeImage}}" target="_blank">
+                <img src={{home.homeImage}} class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{home.homeName}}</h5>
+                    <div class="row">
+                <h6 class="card-subtitle mb-2 text-muted col">{{home.homeRooms}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted col">{{home.homeType}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted col">{{home.homeMeters}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted col">{{home.homeColor}}</h6>
                     </div>
+                    
+                    <h6 class="card-subtitle mb-2 text-danger">{{home.homePrice}}</h6>
+
+
+                    <p class="card-text">{{home.homeDesc}}</p>
+                    <h6 class="card-subtitle mb-2 text-success">{{home.homeLocation}}</h6>
+
+                    <a href="tel:+90{{home.homeAuthor}}" class="btn mr-2"><i class="fas fa-link"></i>İletişim için: {{home.homeAuthor}}</a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+        </div>
+        </div>
+
+
+
 
 <footer>
     <div class="jumbotron jumbotron-fluid bg-secondary p-4 mt-5 mb-0">

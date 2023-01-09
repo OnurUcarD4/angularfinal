@@ -25,7 +25,7 @@ isSignedIn = false
       if(this.firebaseService.isLoggedIn)
       this.isSignedIn = true
       this.toastr.success('Emlak Portalı', 'Başarıyla kayıt olundu.');
-      this.router.navigate(['main']);
+      this.router.navigate(['dashboard']);
       
       
 
@@ -36,7 +36,7 @@ isSignedIn = false
       if(this.firebaseService.isLoggedIn)
       this.isSignedIn = true
       this.toastr.success('Emlak Portalı', 'Başarıyla giriş yapıldı.');
-      this.router.navigate(['main'])
+      this.router.navigate(['dashboard'])
       let Role = localStorage.getItem("userType")
       if(Role === "admin"){
         this.router.navigate(['admin'])

@@ -8,4 +8,7 @@ export class AllHomes {
     homeType: string;
     homeColor: string;
     homeLocation: string;
+    homeImage: string;
+    homeAuthor: string;
+
 }

@@ -13,9 +13,10 @@ import { MainComponent } from './main/main.component';
 import { AdminComponent } from './admin/admin.component';
 import { AboutComponent } from './about/about.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { CreateHomeComponent } from './create-home/create-home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
-import {ReactiveFormsModule} from "@angular/forms";
-import { CreateHomeComponent } from './create-home/create-home.component'
+import { RouterModule } from '@angular/router';
 
 
 
@@ -29,14 +30,16 @@ import { CreateHomeComponent } from './create-home/create-home.component'
     AdminComponent,
     AboutComponent,
     QuestionsComponent,
-    FormsModule,
-    ReactiveFormsModule,
     CreateHomeComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
+    RouterModule,
+    FormsModule,
+
     BrowserAnimationsModule,
     AngularFireModule.initializeApp({
   apiKey: "AIzaSyAiSl6YfRDA05RfrRQtsy9PQC-68H7RcTU",

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { AdminComponent } from './admin/admin.component';
+import { CreateHomeComponent } from './create-home/create-home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
@@ -14,9 +16,23 @@ const routes: Routes = [
     path:"login",
     component: LoginComponent
   },
+    {
+    path:"",
+    component: HomeComponent
+  },
   {
     path:"home",
     component: HomeComponent
+  },
+  {
+    path:"dashboard",
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"create-home",
+    component: CreateHomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:"main",
