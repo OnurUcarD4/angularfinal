@@ -24,6 +24,7 @@ export class AdminComponent implements OnInit {
   homeLocation: string = '';
   homeImage: string = '';
 
+
   ngOnInit(): void {
        this.data.getAllHomes().subscribe(res=>{
       this.homeList = res.map((e: any)=>{
@@ -34,7 +35,7 @@ export class AdminComponent implements OnInit {
     }, err=> {alert("İlanlar yüklenirken hata oluştu.")})
   }
   deleteHome(home: AllHomes){
-    if(window.confirm((home.homeName + 'adlı ilanı silmek istediğinize emin misiniz?'))){
+    if(window.confirm((home.homeName + ' ' + 'adlı ilanı silmek istediğinize emin misiniz?'))){
     this.data.deleteHome(home)
     }
   }

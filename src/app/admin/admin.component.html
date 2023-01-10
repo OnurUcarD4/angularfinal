@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand text-white" href="/dashboard"><i class="fa fa-graduation-cap fa-lg mr-2"></i>EMLAK
+        <a class="navbar-brand text-white" href="/admin"><i class="fa fa-graduation-cap fa-lg mr-2"></i>EMLAK
             PORTALI</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse"
             aria-controls="nvbCollapse">
@@ -46,7 +46,7 @@
                                         <th title="{{home.homeName}}" scope="row">{{home.homeName.substring(0,24) + "..."}}</th>
                                         <td>{{home.id}}</td>
                                         <td>30 GÜN</td>
-                                        <td><button type="button" class="btn btn-danger m-2">İlanı Kaldır</button> <button type="button" class="btn btn-danger">İlanı Düzenle</button></td>
+                                        <td><button type="button" (click)="deleteHome(home)" class="btn btn-danger m-2">İlanı Kaldır</button> <button type="button" class="btn btn-danger">İlanı Düzenle</button></td>
                                         
                                     </tr>
                                 </tbody>

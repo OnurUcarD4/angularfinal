@@ -24,8 +24,6 @@ export class CreateHomeComponent implements OnInit {
   homeLocation:'',
   homeImage: '',
   homeAuthor: '',
-
-
   }
   id: string = '';
   homeName: string = '';
