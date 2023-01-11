@@ -2,6 +2,19 @@
 body{
     background-color: #221e1e !important;
 }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+@import 'bootstrap/scss/bootstrap';
 @import "ngx-toastr/toastr";
 @import "../node_modules/bootstrap/scss/bootstrap.scss"
+
+
+
 

@@ -10,6 +10,7 @@ import { MainComponent } from './main/main.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { AuthGuard } from './shared/auth.guard';
 import { RoleGuard } from './shared/role.guard';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path:"admin",
     component: AdminComponent,
+    canActivate:[RoleGuard]
+  },
+    {
+    path:"users",
+    component: UsersComponent,
     canActivate:[RoleGuard]
   },
   {

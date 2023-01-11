@@ -17,6 +17,9 @@ import { CreateHomeComponent } from './create-home/create-home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatDialogModule} from "@angular/material/dialog";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsersComponent } from './users/users.component';
 
 
 
@@ -32,6 +35,7 @@ import { RouterModule } from '@angular/router';
     QuestionsComponent,
     CreateHomeComponent,
     DashboardComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import { RouterModule } from '@angular/router';
     ToastrModule.forRoot(),
     RouterModule,
     FormsModule,
+    MatDialogModule,
 
     BrowserAnimationsModule,
     AngularFireModule.initializeApp({
@@ -50,7 +55,8 @@ import { RouterModule } from '@angular/router';
   appId: "1:876612389292:web:62ce229d69799463da1209",
   measurementId: "G-J34K4406QJ"
 }),
-AngularFirestoreModule
+AngularFirestoreModule,
+NgbModule
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

@@ -1,20 +1,30 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand text-white" href="/dashboard"><i class="fa fa-graduation-cap fa-lg mr-2"></i>EMLAK PORTALI</a>
+        <a class="navbar-brand text-white" href="/admin"><i class="fa fa-graduation-cap fa-lg mr-2"></i>EMLAK
+            PORTALI</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse"
             aria-controls="nvbCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="nvbCollapse">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item pl-1">
+                    <a class="nav-link" href="/admin"><i class="fa fa-home fa-fw mr-1"></i>İlanlar</a>
+                </li>
                 <li class="nav-item active pl-1">
-                    <a class="nav-link" href="/dashboard"><i class="fa fa-home fa-fw mr-1"></i>İlanlar</a>
+                    <a class="nav-link" href="/users"><i class="fa fa-th-list fa-fw mr-1"></i>Kullanıcılar</a>
                 </li>
+         
                 <li class="nav-item pl-1">
-                    <a class="nav-link" href="/create-home"><i class="fa fa-th-list fa-fw mr-1"></i>İlan Oluştur</a>
-                </li>
-                <li class="nav-item pl-1">
-                                <a (click)="exitAccount()" class="nav-link" href="/home"><i class="fa fa-th-list fa-fw mr-1"></i>Çıkış Yap</a>
+                    <a (click)="exitAccount()" class="nav-link" href="/home"><i
+                            class="fa fa-th-list fa-fw mr-1"></i>Çıkış Yap</a>
                 </li>
 
             </ul>
@@ -22,37 +32,36 @@
     </div>
 </nav>
 
-<div class="container mx-auto mt-4 ">
-    <div class="row">
-        <div class="col-md-4 card-container" >
-            <div class="card" *ngFor="let home of homeList" style="width: 18rem;">
-                <a href="{{home.homeImage}}" target="_blank">
-                <img src={{home.homeImage}} class="card-img-top">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">{{home.homeName}}</h5>
-                    <div class="row">
-                <h6 class="card-subtitle mb-2 text-muted col">{{home.homeRooms}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted col">{{home.homeType}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted col">{{home.homeMeters}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted col">{{home.homeColor}}</h6>
-                    </div>
-                    
-                    <h6 class="card-subtitle mb-2 text-danger">{{home.homePrice}}</h6>
+<section class="intro ">
+    <div class="gradient-custom-2 h-100">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-bordered mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Kullanıcılar</th>
 
-
-                    <p class="card-text">{{home.homeDesc}}</p>
-                    <h6 class="card-subtitle mb-2 text-success">{{home.homeLocation}}</h6>
-
-                    <a href="tel:+90{{home.homeAuthor}}" class="btn mr-2"><i class="fas fa-link"></i>İletişim için: {{home.homeAuthor}}</a>
-                </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="" *ngFor="let user of userList; let i = index">
+                                        <th title="{{user.mail}}" scope="row">{{user.mail}}</th>
+                                        <td>
+            
+                                </tbody>
+                            </table>
+                        </div>
             </div>
         </div>
-        </div>
-        </div>
+                </div>
 
+                        </div>
 
-
+    </div>
+        </section>
 
 <footer>
     <div class="jumbotron jumbotron-fluid bg-secondary p-4 mt-5 mb-0">

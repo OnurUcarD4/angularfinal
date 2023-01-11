@@ -16,12 +16,11 @@ isSignedIn = false
 userList: Users[] = [];
 userObj: Users = {
   id: '',
-email: '',
-password: '',
+mail: '',
 };
   id: string;
-  email: string;
-  password: string;
+  emailAddress: string;
+  pass: string;
 
   
   constructor(public firebaseService : FirebaseService, private toastr: ToastrService, private router: Router, private angularFirestore: AngularFirestore, private dataService: DataService){
@@ -34,15 +33,13 @@ password: '',
       this.isSignedIn = false
     }
     async onSignup(email:string, password:string){
-      await this.firebaseService.signup(email,password)
+      await this.firebaseService.signup(email,password).catch(err=>{this.toastr.error(err, "Emlak Portalı")})
       if(this.firebaseService.isLoggedIn){
       this.isSignedIn = true
       this.toastr.success('Emlak Portalı', 'Başarıyla kayıt olundu.');
       this.router.navigate(['dashboard']);
+      this.userObj.mail = email;
       this.userObj.id = '';
-      this.userObj.email = this.email;
-      this.userObj.password = this.password;
-      console.log(this.userObj)
       this.dataService.addUser(this.userObj)
       }
       
